@@ -5,24 +5,55 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Actions {
 
 	public class ScanAT : ActionTask {
+
+		public BBParameter<Transform> targetBBP;
+		public BBParameter<bool> hasTargetBBP;
+		public BBParameter<float> initialScanRadiousBBP;
+		public BBParameter<float> currentScanRadiusBBP;
+
+		public LayerMask targetLayerMask;
+		public float scanDurationInSeconds;
 		public Color scanColour;
 		public int numberOfScanCirclePoints;
 
-		//Use for initialization. This is called only once in the lifetime of the task.
-		//Return null if init was successfull. Return an error string otherwise
-		protected override string OnInit() {
+		private float currentScanDuration = 0f;
+
+
+		protected override string OnInit() 
+		{
+			currentScanRadiusBBP.value = initialScanRadiousBBP.value;
 			return null;
 		}
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
-		protected override void OnExecute() {
+		protected override void OnExecute()
+		{
+			currentScanDuration = 0f;
+			//currentScanRadiusBB.value = initialScanRadiousBB.value;
+
 		}
 
-		//Called once per frame while the action is active.
-		protected override void OnUpdate() {
-			
+		protected override void OnUpdate()
+		{
+			DrawCircle(agent.transform.position, currentScanRadiusBBP.value,scanColour,numberOfScanCirclePoints);	
+
+			currentScanDuration += Time.deltaTime;
+			if (currentScanDuration > scanDurationInSeconds)
+			{
+				Collider[] colliders = Physics.OverlapSphere(agent.transform.position, currentScanRadiusBBP.value, targetLayerMask);
+				foreach (Collider collider in colliders)
+				{
+					Blackboard bb = collider.GetComponentInParent<Blackboard>();
+					float repairValue = bb.GetVariableValue<float>("repairValue");
+
+					if (repairValue == 0f)
+					{
+                        targetBBP.value = bb.GetVariableValue<Transform>("workpad");
+						hasTargetBBP.value = true;
+				    }
+
+				}
+                EndAction(true);
+            }
 		}
 
 		private void DrawCircle(Vector3 center, float radius, Color colour, int numberOfPoints)
@@ -41,13 +72,13 @@ namespace NodeCanvas.Tasks.Actions {
 			
 		}
 
-		//Called when the task is disabled.
-		protected override void OnStop() {
+		protected override void OnStop() 
+		{
 			
 		}
 
-		//Called when the task is paused.
-		protected override void OnPause() {
+		protected override void OnPause() 
+		{
 			
 		}
 	}

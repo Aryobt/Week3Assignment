@@ -23,7 +23,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			variableValue.value += decreaseRate * Time.deltaTime;
+			variableValue.value -= decreaseRate * Time.deltaTime;
 
 			if (variableValue.value < minValue)
 			{
