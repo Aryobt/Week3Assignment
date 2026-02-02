@@ -53,8 +53,8 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  - name: 
-    cost: 1
+  - name: Oil Spil
+    cost: 2
   - name: 
     cost: 1
   - name: 
