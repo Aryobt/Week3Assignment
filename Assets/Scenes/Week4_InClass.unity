@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 512926248}
   - component: {fileID: 512926247}
   - component: {fileID: 512926246}
+  - component: {fileID: 512926251}
   - component: {fileID: 512926250}
   m_Layer: 0
   m_Name: Follower
@@ -756,13 +757,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 512926244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2f2fa5bd92f0d43854968cee965d80, type: 3}
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 141368400}
-  moveSpeed: 5
-  turnSpeed: 240
-  inRangeClip: {fileID: 0}
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
+--- !u!114 &512926251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512926244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"speed":5.0,"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Walking","_position":{"x":517.0,"y":268.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":213.0,"y":457.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_nestedFSM":{},"_position":{"x":712.0,"y":369.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 512926250}
 --- !u!1 &583193446
 GameObject:
   m_ObjectHideFlags: 0
