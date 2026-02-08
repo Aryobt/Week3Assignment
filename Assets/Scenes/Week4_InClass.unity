@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 420540198}
   - component: {fileID: 420540197}
   - component: {fileID: 420540196}
+  - component: {fileID: 420540200}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -638,6 +639,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &420540200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420540195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 4, y: 3, z: 4}
+  m_Center: {x: 0, y: 1, z: 0}
+  m_Area: 24
+  m_AffectedAgents: 00000000
 --- !u!1 &473834622
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +896,9 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"OnTopOfTree":{"_value":2,"_name":"OnTopOfTree","_id":"2133f706-e895-4914-9013-34cbea61c410","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Banana":{"_value":3,"_name":"Banana","_id":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"ReachedTree":{"_name":"ReachedTree","_id":"ce8eed53-e00b-4714-8117-e570612bd042","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"reached
+    Top":{"_name":"reached Top","_id":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ReachBanana":{"_name":"ReachBanana","_id":"2152d961-e9c6-442c-8c0a-0f32f99b08d7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -909,6 +930,12 @@ MonoBehaviour:
   - _json: '{"_name":"ReachedTree","_id":"ce8eed53-e00b-4714-8117-e570612bd042","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"reached Top","_id":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"ReachBanana","_id":"2152d961-e9c6-442c-8c0a-0f32f99b08d7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &512926251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,7 +950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
   _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"target":{"_name":"Tree","_targetVariableID":"d286ff8e-df8a-4b64-8b45-bc6e9f722f3f"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachedTree":{"_name":"ReachedTree","_targetVariableID":"ce8eed53-e00b-4714-8117-e570612bd042"},"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Walking","_position":{"x":299.0,"y":398.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{},"exitMode":1,"_position":{"x":665.6024,"y":433.4254},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"topTree":{"_name":"OnTopOfTree","_targetVariableID":"2133f706-e895-4914-9013-34cbea61c410"},"ClimbSpeed":{"_name":"Climb
-    Speed","_targetVariableID":"c19178bc-7def-4f26-b06d-e8f68bff512f"},"$type":"NodeCanvas.Tasks.Actions.climbTree"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Climb","_position":{"x":854.0,"y":699.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+    Speed","_targetVariableID":"c19178bc-7def-4f26-b06d-e8f68bff512f"},"reachedTop":{"_name":"reached
+    Top","_targetVariableID":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6"},"$type":"NodeCanvas.Tasks.Actions.climbTree"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Climb","_position":{"x":871.0,"y":572.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"Banana":{"_name":"Banana","_targetVariableID":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachBanana":{"_name":"ReachBanana","_targetVariableID":"2152d961-e9c6-442c-8c0a-0f32f99b08d7"},"$type":"NodeCanvas.Tasks.Actions.GBanana"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Grab
+    Banana","_position":{"x":1138.602,"y":695.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"throw
+    Banana","_position":{"x":930.6024,"y":813.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.33
@@ -1961,7 +1991,7 @@ Transform:
   m_GameObject: {fileID: 1965706472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.47, y: 9.46, z: -1.5252829}
+  m_LocalPosition: {x: 11.47, y: 10.18, z: -1.5252829}
   m_LocalScale: {x: 1, y: 0.037948, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
