@@ -9,7 +9,10 @@ namespace NodeCanvas.Tasks.Actions {
 
 		public BBParameter<Transform> target;
         public BBParameter <float> speed;
-		
+        public BBParameter<bool> reachedTree;
+        public float stopDistance = 0.5f;
+
+
 
 
         protected override string OnInit() {
@@ -21,8 +24,18 @@ namespace NodeCanvas.Tasks.Actions {
         }
 
 		protected override void OnUpdate() {
-			Vector3 moveDirection = (target.value.position-agent.transform.position).normalized;
+            float distance = Vector3.Distance(agent.transform.position, target.value.position);
+
+            if (distance <= stopDistance)
+            {
+                reachedTree.value = true;   
+                EndAction(true);            
+                return;
+            }
+
+            Vector3 moveDirection = (target.value.position-agent.transform.position).normalized;
 			agent.transform.position += moveDirection * speed.value * Time.deltaTime;
+			
 
         }
 
