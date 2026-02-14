@@ -12,18 +12,36 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<bool> reachedTree;
         public float stopDistance = 0.5f;
 
+        public AudioClip walkingSound;
+        private AudioSource audioSource;
+
 
 
 
         protected override string OnInit() {
-			return null;
+
+            audioSource = agent.GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.LogWarning("Walk Action: No AudioSource found on agent.");
+            }
+
+            return null;
 		}
 
 		protected override void OnExecute() {
-	
+            if (audioSource != null && walkingSound != null)
+            {
+                audioSource.clip = walkingSound;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+
+
         }
 
-		protected override void OnUpdate() {
+        protected override void OnUpdate() {
             float distance = Vector3.Distance(agent.transform.position, target.value.position);
 
             if (distance <= stopDistance)
@@ -39,11 +57,16 @@ namespace NodeCanvas.Tasks.Actions {
 
         }
 
-        protected override void OnStop() {
-			
-		}
+        protected override void OnStop()
+        {
+            if (audioSource != null)
+            {
+                audioSource.Stop();
 
-		protected override void OnPause() {
+            }
+        }
+
+        protected override void OnPause() {
 			
 		}
 	}
