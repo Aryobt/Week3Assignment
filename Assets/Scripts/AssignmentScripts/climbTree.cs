@@ -13,14 +13,30 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<bool> reachedTop;
         public float stopDistance = 0.5f;
 
+        public AudioClip climbingSound;
+        private AudioSource audioSource;
+
         protected override string OnInit() {
-			return null;
+
+            audioSource = agent.GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.LogWarning("Walk Action: No AudioSource found on agent.");
+            }
+
+            return null;
 		}
 
 	
 		protected override void OnExecute() {
-			
-		}
+            if (audioSource != null && climbingSound != null)
+            {
+                audioSource.clip = climbingSound;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
 
 	
 		protected override void OnUpdate() {
@@ -38,8 +54,13 @@ namespace NodeCanvas.Tasks.Actions {
 
 		
 		protected override void OnStop() {
-			
-		}
+
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+
+            }
+        }
 
 	
 		protected override void OnPause() {

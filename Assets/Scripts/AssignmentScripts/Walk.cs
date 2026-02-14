@@ -3,40 +3,32 @@ using ParadoxNotion.Design;
 using UnityEngine;
 
 
-namespace NodeCanvas.Tasks.Actions {
+namespace NodeCanvas.Tasks.Actions
+{
 
 	public class Walk : ActionTask {
 
-		public BBParameter<Transform> target;
+        public BBParameter<AudioSource> audioSourceParam;
+
+        public BBParameter<Transform> target;
         public BBParameter <float> speed;
         public BBParameter<bool> reachedTree;
         public float stopDistance = 0.5f;
-
-        public AudioClip walkingSound;
-        private AudioSource audioSource;
 
 
 
 
         protected override string OnInit() {
-
-            audioSource = agent.GetComponent<AudioSource>();
-
-            if (audioSource == null)
+            if (audioSourceParam.value != null)
             {
-                Debug.LogWarning("Walk Action: No AudioSource found on agent.");
+                audioSourceParam.value.loop = true;
+                audioSourceParam.value.Play();
             }
 
             return null;
 		}
 
 		protected override void OnExecute() {
-            if (audioSource != null && walkingSound != null)
-            {
-                audioSource.clip = walkingSound;
-                audioSource.loop = true;
-                audioSource.Play();
-            }
 
 
         }
@@ -46,7 +38,12 @@ namespace NodeCanvas.Tasks.Actions {
 
             if (distance <= stopDistance)
             {
-                reachedTree.value = true;   
+                reachedTree.value = true;
+                if (audioSourceParam.value != null)
+                {
+                    audioSourceParam.value.Stop();
+                }
+
                 EndAction(true);            
                 return;
             }
@@ -59,11 +56,11 @@ namespace NodeCanvas.Tasks.Actions {
 
         protected override void OnStop()
         {
-            if (audioSource != null)
+            if (audioSourceParam.value != null)
             {
-                audioSource.Stop();
-
+                audioSourceParam.value.Stop();
             }
+
         }
 
         protected override void OnPause() {

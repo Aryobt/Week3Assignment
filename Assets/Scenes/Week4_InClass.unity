@@ -633,7 +633,7 @@ Transform:
   m_GameObject: {fileID: 420540195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.788, y: 9.75, z: -0.7805}
+  m_LocalPosition: {x: 7.931, y: 9.75, z: -0.7805}
   m_LocalScale: {x: 0.11993, y: 0.23986, z: 0.11993}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -902,12 +902,14 @@ MonoBehaviour:
     Top":{"_name":"reached Top","_id":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ReachBanana":{"_name":"ReachBanana","_id":"2152d961-e9c6-442c-8c0a-0f32f99b08d7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ThrowBanana":{"_name":"ThrowBanana","_id":"913c395b-eb5e-4a81-9183-6aaf660335b2","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Walk":{"_value":4,"_name":"Walk","_id":"10aaa3ea-f034-467a-a76c-3949933b7c67","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 1290905651}
   - {fileID: 1965706476}
   - {fileID: 420540199}
+  - {fileID: 512926252}
   _serializedVariables:
   - _json: '{"_value":3.0,"_name":"Speed","_id":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
@@ -945,6 +947,11 @@ MonoBehaviour:
   - _json: '{"_name":"ThrowBanana","_id":"913c395b-eb5e-4a81-9183-6aaf660335b2","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_value":1,"_name":"Walk","_id":"10aaa3ea-f034-467a-a76c-3949933b7c67","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+      UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 512926252}
 --- !u!114 &512926251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,13 +965,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"target":{"_name":"Tree","_targetVariableID":"d286ff8e-df8a-4b64-8b45-bc6e9f722f3f"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachedTree":{"_name":"ReachedTree","_targetVariableID":"ce8eed53-e00b-4714-8117-e570612bd042"},"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Walking","_position":{"x":299.0,"y":398.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"topTree":{"_name":"OnTopOfTree","_targetVariableID":"2133f706-e895-4914-9013-34cbea61c410"},"ClimbSpeed":{"_name":"Climb
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"audioSourceParam":{"_name":"Walk","_targetVariableID":"10aaa3ea-f034-467a-a76c-3949933b7c67"},"target":{"_name":"Tree","_targetVariableID":"d286ff8e-df8a-4b64-8b45-bc6e9f722f3f"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachedTree":{"_name":"ReachedTree","_targetVariableID":"ce8eed53-e00b-4714-8117-e570612bd042"},"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Walking","_position":{"x":297.6829,"y":398.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"topTree":{"_name":"OnTopOfTree","_targetVariableID":"2133f706-e895-4914-9013-34cbea61c410"},"ClimbSpeed":{"_name":"Climb
     Speed","_targetVariableID":"c19178bc-7def-4f26-b06d-e8f68bff512f"},"reachedTop":{"_name":"reached
-    Top","_targetVariableID":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6"},"$type":"NodeCanvas.Tasks.Actions.climbTree"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Climb","_position":{"x":871.0,"y":572.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"Banana":{"_name":"Banana","_targetVariableID":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachBanana":{"_name":"ReachBanana","_targetVariableID":"2152d961-e9c6-442c-8c0a-0f32f99b08d7"},"$type":"NodeCanvas.Tasks.Actions.GBanana"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Grab
-    Banana","_position":{"x":1138.602,"y":695.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"Banana":{"_name":"Banana","_targetVariableID":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879"},"throwBanana":{},"throwForce":{"_name":"ThrowForce","_targetVariableID":"e632eab9-b77d-4a18-b81e-4e633e2490f7"},"$type":"NodeCanvas.Tasks.Actions.ThrowBanana"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"throw
-    Banana","_position":{"x":931.6024,"y":818.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_nestedFSM":{"_value":1},"exitMode":1,"_name":"Climb","_position":{"x":520.6024,"y":542.4254},"$type":"NodeCanvas.StateMachines.NestedFSMState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+    Top","_targetVariableID":"d35c76b6-cf2e-4d5c-94c4-9522ce1f24e6"},"climbingSound":1,"$type":"NodeCanvas.Tasks.Actions.climbTree"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Climb","_position":{"x":870.9999,"y":570.6829},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"Banana":{"_name":"Banana","_targetVariableID":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879"},"speed":{"_name":"Speed","_targetVariableID":"68233da7-b8fb-4d4b-a18f-3a061b11a8cf"},"reachBanana":{"_name":"ReachBanana","_targetVariableID":"2152d961-e9c6-442c-8c0a-0f32f99b08d7"},"MonkeySound":2,"$type":"NodeCanvas.Tasks.Actions.GBanana"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Grab
+    Banana","_position":{"x":1139.919,"y":695.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"Banana":{"_name":"Banana","_targetVariableID":"e188ec2a-f2c9-4ec8-9cf1-dad15954f879"},"throwBanana":{},"throwForce":{"_name":"ThrowForce","_targetVariableID":"e632eab9-b77d-4a18-b81e-4e633e2490f7"},"$type":"NodeCanvas.Tasks.Actions.ThrowBanana"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"throw
+    Banana","_position":{"x":931.6024,"y":818.4254},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_nestedFSM":{"_value":3},"exitMode":1,"_name":"Climb","_position":{"x":520.6024,"y":542.4254},"$type":"NodeCanvas.StateMachines.NestedFSMState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
+  - {fileID: 8300000, guid: 335da457a5df9084ab18acaf8438ce34, type: 3}
+  - {fileID: 8300000, guid: 2fe4474981826634c8014351e8651858, type: 3}
   - {fileID: 11400000, guid: d88275ac56ed3c34ab6c2e1cbdbd8cf3, type: 2}
   _boundGraphSource:
     _version: 3.33
@@ -1105,8 +1114,8 @@ Transform:
   m_GameObject: {fileID: 583193446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.492, y: 4.61, z: -0.76264143}
-  m_LocalScale: {x: 0.98338646, y: 9.760264, z: 0.784}
+  m_LocalPosition: {x: 7.064, y: 4.61, z: -0.76264143}
+  m_LocalScale: {x: 1.98609, y: 9.760264, z: 1.7529455}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1512306958}
@@ -1654,7 +1663,7 @@ Transform:
   m_GameObject: {fileID: 1290905647}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.555, y: 1.5, z: -0.76264143}
+  m_LocalPosition: {x: 5.73, y: 1.5, z: -0.76264143}
   m_LocalScale: {x: 0.98338646, y: 0.012563413, z: 0.784}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2103,7 +2112,7 @@ Transform:
   m_GameObject: {fileID: 1965706472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.735, y: 10.18, z: -0.76264143}
+  m_LocalPosition: {x: 5.856, y: 10.18, z: -0.76264143}
   m_LocalScale: {x: 0.5, y: 0.037948, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -13,15 +13,31 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<bool> reachBanana;
         public float DistanceGrabBanana = 0.5f;
 
+        public AudioClip MonkeySound;
+        private AudioSource audioSource;
+
         protected override string OnInit() {
-			return null;
+
+            audioSource = agent.GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.LogWarning("Walk Action: No AudioSource found on agent.");
+            }
+
+            return null;
 		}
 
 	
 
 		protected override void OnExecute() {
-		
-		}
+            if (audioSource != null && MonkeySound != null)
+            {
+                audioSource.clip = MonkeySound;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
 
 		protected override void OnUpdate() {
             float distance = Vector3.Distance(agent.transform.position, Banana.value.position);
@@ -39,8 +55,12 @@ namespace NodeCanvas.Tasks.Actions {
 
 
 		protected override void OnStop() {
-			
-		}
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+
+            }
+        }
 
 		protected override void OnPause() {
 			
