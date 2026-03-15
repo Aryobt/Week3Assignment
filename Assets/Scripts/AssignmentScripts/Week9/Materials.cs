@@ -4,7 +4,8 @@ using UnityEngine;
 public class Materials : MonoBehaviour
 {
     public Blackboard blackboard;
-    public float materialGain = 10f;
+    public float materialGain = 100f;
+    public GameObject materialBox;
 
    private void Start()
     {
@@ -13,7 +14,7 @@ public class Materials : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MaterialBox"))
+        if (other.gameObject == materialBox)
         {
             float current = blackboard.GetVariableValue<float>("Material");
             float newAmount = current + materialGain;

@@ -265,7 +265,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -338,6 +338,68 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &708499397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708499398}
+  m_Layer: 0
+  m_Name: FrontOfHouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &708499398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708499397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &737365934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737365935}
+  m_Layer: 0
+  m_Name: FrontOfMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737365935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737365934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -689,6 +751,7 @@ GameObject:
   - component: {fileID: 1313951235}
   - component: {fileID: 1313951234}
   - component: {fileID: 1313951236}
+  - component: {fileID: 1313951237}
   m_Layer: 0
   m_Name: Builder
   m_TagString: Untagged
@@ -804,11 +867,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ParadoxNotion::NodeCanvas.Framework.Blackboard
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"Material":{"_name":"Material","_id":"2a013f4e-2adc-44d6-a0f6-4ba02a327950","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  _serializedBlackboard: '{"_variables":{"Material":{"_value":100.0,"_name":"Material","_id":"2a013f4e-2adc-44d6-a0f6-4ba02a327950","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
-  - _json: '{"_name":"Material","_id":"2a013f4e-2adc-44d6-a0f6-4ba02a327950","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":100.0,"_name":"Material","_id":"2a013f4e-2adc-44d6-a0f6-4ba02a327950","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &1313951235
@@ -824,12 +887,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NodeCanvas::NodeCanvas.BehaviourTrees.BehaviourTreeOwner
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":688.0,"y":153.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"isDynamic":true,"conditionFailReturn":1,"_condition":{"valueA":{"_name":"Material","_targetVariableID":"2a013f4e-2adc-44d6-a0f6-4ba02a327950"},"checkType":2,"valueB":{"_value":40.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_position":{"x":513.0,"y":295.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"1"},{"_action":{"target":{"_value":1},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_position":{"x":517.0,"y":483.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"isDynamic":true,"conditionFailReturn":1,"_condition":{"valueA":{"_name":"Material","_targetVariableID":"2a013f4e-2adc-44d6-a0f6-4ba02a327950"},"checkType":1,"valueB":{"_value":70.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_position":{"x":856.0,"y":310.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"3"},{"childWeights":[{"_value":2.0},{"_value":8.0}],"failChance":{},"_position":{"x":876.0,"y":432.0},"$type":"NodeCanvas.BehaviourTrees.ProbabilitySelector","$id":"4"},{"_action":{"target":{"_value":2},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_position":{"x":744.0,"y":510.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_action":{"target":{"_value":3},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_position":{"x":1011.0,"y":518.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":766.0,"y":133.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"isDynamic":true,"conditionFailReturn":1,"_condition":{"valueA":{"_name":"Material","_targetVariableID":"2a013f4e-2adc-44d6-a0f6-4ba02a327950"},"checkType":2,"valueB":{"_value":40.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_position":{"x":579.0,"y":268.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"1"},{"_action":{"target":{"_value":1},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_tag":"GoToBox","_position":{"x":587.0,"y":473.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"isDynamic":true,"conditionFailReturn":1,"_condition":{"valueA":{"_name":"Material","_targetVariableID":"2a013f4e-2adc-44d6-a0f6-4ba02a327950"},"checkType":1,"valueB":{"_value":60.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_position":{"x":873.0,"y":276.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"3"},{"childWeights":[{"_value":2.0},{"_value":8.0}],"failChance":{},"_position":{"x":893.0,"y":412.0},"$type":"NodeCanvas.BehaviourTrees.ProbabilitySelector","$id":"4"},{"_action":{"target":{"_value":2},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_tag":"GoToMap","_position":{"x":795.0,"y":495.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_action":{"target":{"_value":3},"speed":{"_value":2.0},"stopDistance":{"_value":0.1},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.MoveTowards"},"_tag":"GoToHouse","_position":{"x":979.0,"y":502.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 635997264}
-  - {fileID: 616375026}
-  - {fileID: 840600296}
+  - {fileID: 737365934}
+  - {fileID: 708499397}
   _boundGraphSource:
     _version: 3.33
     _category: 
@@ -857,7 +920,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Materials
   blackboard: {fileID: 1313951234}
-  materialGain: 10
+  materialGain: 0
+  materialBox: {fileID: 635997264}
+--- !u!54 &1313951237
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313951229}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2131222080
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,3 +1072,5 @@ SceneRoots:
   - {fileID: 840600300}
   - {fileID: 616375030}
   - {fileID: 2131222084}
+  - {fileID: 708499398}
+  - {fileID: 737365935}
