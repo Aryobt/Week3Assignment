@@ -13,6 +13,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public float stopDistance = 5f;
 
 		protected override void OnUpdate() {
+			
 			if (PlayerPosition.value == null)
 			{
 				EndAction(false);
