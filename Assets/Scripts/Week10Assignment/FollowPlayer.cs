@@ -12,7 +12,14 @@ namespace NodeCanvas.Tasks.Actions {
 		public float rotateSpeed = 5f;
 		public float stopDistance = 5f;
 
-		protected override void OnUpdate() {
+  
+        public AudioSource audioSource;
+        public float audioTriggerDistance = 8f;
+
+        private bool audioPlayed = false;
+
+
+        protected override void OnUpdate() {
 			
 			if (PlayerPosition.value == null)
 			{
@@ -21,6 +28,16 @@ namespace NodeCanvas.Tasks.Actions {
 			}
 
             float distance = Vector3.Distance(agent.transform.position, PlayerPosition.value.position);
+
+
+            if (distance <= audioTriggerDistance && !audioPlayed)
+            {
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                    audioPlayed = true;
+                }
+            }
 
 
             if (distance < stopDistance)
