@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 326756967}
   - component: {fileID: 326756966}
   m_Layer: 0
-  m_Name: w (1)
+  m_Name: wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: ParadoxNotion::NodeCanvas.Framework.Blackboard
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"PlayerPos":{"_value":1,"_name":"PlayerPos","_id":"5642a96f-3d6c-4a99-aa01-eff29582a2b9","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Playerdis":{"_name":"Playerdis","_id":"8cac901a-01b7-4701-809e-72caa29bd5b7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Playerdis":{"_value":1.0,"_name":"Playerdis","_id":"8cac901a-01b7-4701-809e-72caa29bd5b7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -511,7 +511,7 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 2009397112}
-  - _json: '{"_name":"Playerdis","_id":"8cac901a-01b7-4701-809e-72caa29bd5b7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":1.0,"_name":"Playerdis","_id":"8cac901a-01b7-4701-809e-72caa29bd5b7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &433895298
@@ -883,7 +883,7 @@ MonoBehaviour:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 491.30066, y: 89.98847}
+    _translation: {x: -61.87685, y: 32.35004}
     _zoomFactor: 0.7500998
   _firstActivation: 0
   _enableAction: 0
@@ -1230,8 +1230,10 @@ GameObject:
   - component: {fileID: 1500689945}
   - component: {fileID: 1500689944}
   - component: {fileID: 1500689943}
+  - component: {fileID: 1500689947}
+  - component: {fileID: 1500689948}
   m_Layer: 0
-  m_Name: Objective
+  m_Name: coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,7 +1254,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1283,7 +1285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b9ab8289b4fe8a44a046a685b815157, type: 2}
+  - {fileID: 2100000, guid: 9f91fc6d0f1ad5f4d90ff5badd71451e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1324,12 +1326,123 @@ Transform:
   m_GameObject: {fileID: 1500689942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 15}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500689947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500689942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0f57a2246d77747b0021132204201d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Coin
+  audioSource: {fileID: 1500689948}
+  destroyDelay: 0.5
+--- !u!82 &1500689948
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500689942}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 9c7245960e8316f46bb316114f4417f4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1839752735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1584,7 @@ GameObject:
   - component: {fileID: 1906872629}
   - component: {fileID: 1906872628}
   m_Layer: 0
-  m_Name: w
+  m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,7 +1726,7 @@ GameObject:
   - component: {fileID: 2009397114}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1762,9 +1875,9 @@ SceneRoots:
   - {fileID: 2009397112}
   - {fileID: 935254411}
   - {fileID: 433895296}
-  - {fileID: 1500689946}
   - {fileID: 1098377250}
   - {fileID: 426191346}
+  - {fileID: 1500689946}
   - {fileID: 1269741505}
   - {fileID: 1906872632}
   - {fileID: 326756970}

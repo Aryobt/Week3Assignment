@@ -10,7 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<Transform> PlayerPosition;
 		public float moveSpeed = 3f;
 		public float rotateSpeed = 5f;
-		public float stopDistance = 5f;
+		public float stopDistance = 2f;
 
   
         public AudioSource audioSource;
