@@ -14,7 +14,7 @@ namespace NodeCanvas.Tasks.Actions {
 
   
         public AudioSource audioSource;
-        public float audioTriggerDistance = 8f;
+        public float audioTriggerDistance = 10f;
 
         private bool audioPlayed = false;
 
