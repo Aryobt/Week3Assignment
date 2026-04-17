@@ -17,6 +17,7 @@ namespace NodeCanvas.Tasks.Actions {
         public float audioTriggerDistance = 10f;
 
         private bool audioPlayed = false;
+        private bool playerCaught = false;
 
 
         protected override void OnUpdate() {
@@ -42,6 +43,13 @@ namespace NodeCanvas.Tasks.Actions {
 
             if (distance < stopDistance)
 			{
+                if (!playerCaught)
+                {
+                    Debug.Log("Player was caught! Restart the game.");
+                    playerCaught = true;
+                }
+                Time.timeScale = 0f;
+
 				EndAction(true);
 				return;
 			}
